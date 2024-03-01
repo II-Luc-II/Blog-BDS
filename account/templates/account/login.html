@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{%  load static %}
+
+
+{% block content %}
+
+{% include "blog/components/messages.html" with messages=messages %}
+
+<h1>Login Form</h1>
+    <form method="post">
+        {%  csrf_token %}
+            {{ form }}
+    <button class="btn btn-success my-1">Se connecter</button>
+{% endblock %}

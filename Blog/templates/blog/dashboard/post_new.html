@@ -1,0 +1,115 @@
+{%  extends 'blog/admin.html' %}
+{%  load static %}
+
+{% block content %}
+    <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% if post %}
+        <label class="hidden">
+            <input type="text" class="hidden" name="_method" value="PUT">
+        </label>
+
+    {% endif %}
+        <div class="form-group">
+            <label for="title">Title : </label>
+            {{ form.title }}
+            {% if form.title.errors %}
+            {% for error in form.title.errors %}
+                <span>
+                    {{ error }}
+                </span>
+            {% endfor %}
+        {% endif %}
+        </div>
+        <div class="form-group">
+            <label for="content">Content : </label>
+            {{ form.content }}
+            {% if form.content.errors %}
+            {% for error in form.content.errors %}
+                <span>
+                    {{ error }}
+                </span>
+            {% endfor %}
+        {% endif %}
+        </div>
+        <div class="form-group">
+            <label for="image">Image : </label>
+            {{ form.image }}
+            {% if form.image.errors %}
+            {% for error in form.image.errors %}
+                <span>
+                    {{ error }}
+                </span>
+            {% endfor %}
+        {% endif %}
+        </div>
+        <div class="form-group">
+            <label for="category">Category : </label>
+            {{ form.category }}
+            {% if form.category.errors %}
+            {% for error in form.category.errors %}
+                <span>
+                    {{ error }}
+                </span>
+            {% endfor %}
+        {% endif %}
+        </div>
+        <div class="form-group">
+            <label for="is_published">Is published : </label>
+            <div class="form-check form-switch">
+                {{ form.is_published }}
+            </div>
+            {% if form.is_published.errors %}
+            {% for error in form.is_published.errors %}
+                <span>
+                    {{ error }}
+                </span>
+            {% endfor %}
+        {% endif %}
+        </div>
+        <div class="form-group">
+            <label for="tags">Tags : </label>
+            {{ form.tags }}
+            {% if form.tags.errors %}
+            {% for error in form.tags.errors %}
+                <span>
+                    {{ error }}
+                </span>
+            {% endfor %}
+        {% endif %}
+        </div>
+    <div>
+        {% if post %}
+            <button class="btn btn-success my-2">Update</button>
+        {% else %}
+            <button class="btn btn-success my-2">Create</button>
+        {% endif %}
+            <a href="{% url 'dashboard_post' %}" class="btn btn-danger my-2">Cancel</a>
+    </div>
+
+    </form>
+
+{% endblock %}
+{% block scripts %}
+
+<script src="https://cdn.ckeditor.com/ckeditor5/40.2.0/classic/ckeditor.js"></script>
+<script>
+    const editors = document.querySelectorAll('textarea')
+
+    editors.forEach(editor => {
+        editor.removeAttribute('required')
+        ClassicEditor
+        .create( editor )
+        .catch( error => {
+            console.error(error);
+        })
+    })
+</script>
+
+<script>
+    $(document).ready(function() {
+        $('select').select2();
+    });
+</script>
+
+{% endblock %}

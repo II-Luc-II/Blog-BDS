@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{%  load static %}
+
+
+{% block content %}
+
+{% include "blog/components/messages.html" with messages=messages %}
+
+<h1>Register Form</h1>
+
+    <form method="post">
+    {%  csrf_token %}
+        {{ form }}
+    <button class="btn btn-success my-1">Enregistrer</button>
+
+
+    </form>
+
+{% endblock %}

@@ -6,7 +6,7 @@
     <h1>{{ post.title|title }}</h1>
       <div class="post-img">
           <div class="img-fluid">
-              <img src="http://placehold.it/300x300" width="100%" height="200px" alt="{{ post.title }}">
+              <img src="{{ post.image.url }}" width="100%" height="200px" alt="{{ post.title }}">
           </div>
       </div>
       <div class="post-created-at">

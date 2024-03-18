@@ -26,12 +26,12 @@ class PostAdmin(admin.ModelAdmin):
 
     def display_actions(self, post):
         return format_html(
-            '<a href="{}"class="addLink">View</a> &nbsp;'
-            '<a href="{}"class="addLink">Edit</a> &nbsp;'
-            '<a href="{}"class="addLink">Delete</a> &nbsp;',
-            reverse('admin:blog_post_change', args=[post.id]),
-            reverse('admin:blog_post_change', args=[post.id]),
-            reverse('admin:blog_post_delete', args=[post.id])
+            '<a href="{}" class="addLink">View</a> &nbsp;'
+            '<a href="{}" class="addLink">Edit</a> &nbsp;'
+            '<a href="{}" class="addLink">Delete</a> &nbsp;',
+            reverse('admin:Blog_post_change', args=[post.id]),
+            reverse('admin:Blog_post_change', args=[post.id]),
+            reverse('admin:Blog_post_delete', args=[post.id])
             )
 
     display_actions.short_description = 'Action'

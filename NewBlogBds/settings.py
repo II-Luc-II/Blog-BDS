@@ -70,7 +70,7 @@ WSGI_APPLICATION = 'NewBlogBds.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': "commerce",
+        'NAME': "blog",
         'USER': "postgres",
         'PASSWORD': "Iponseonage69@",
         'HOST': "localhost",

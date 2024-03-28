@@ -1,4 +1,4 @@
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, PasswordResetForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from account.forms.CustomUserLoginForm import CustomUserLoginForm
@@ -16,7 +16,7 @@ def register_user(request):
     else:
         form = CustomUserRegisterForm()
 
-    return render(request, 'account/register.html', {"form": form})
+    return render(request, 'registration/register.html', {"form": form})
 
 
 def login_user(request):
@@ -38,7 +38,7 @@ def login_user(request):
     else:
         form = CustomUserLoginForm()
 
-    return render(request, 'account/login.html', {"form": form})
+    return render(request, 'registration/login.html', {"form": form})
 
 
 def logout_user(request):
@@ -46,3 +46,30 @@ def logout_user(request):
         logout(request)
         messages.success(request, 'Vous êtes bien déconnecté.')
     return redirect('home')
+
+
+def password_reset_user(request):
+    if request.method == 'POST':
+        form = PasswordResetForm(data=request.POST)
+        if form.is_valid():
+            messages.success(request, 'Merci de saisir votre adresse mail.')
+            return redirect('password_reset_done')
+        else:
+            messages.error(request, "Merci de saisir une adresse mail valide")
+    form = PasswordResetForm()
+
+    return render(request, 'registration/templates/password_reset.html', {"form": form})
+
+
+def password_reset_user_done(request):
+    if request.method == 'POST':
+        form = PasswordResetForm(request.POST)
+        if form.is_valid():
+            messages.success(request, 'Merci de saisir votre adresse mail.')
+            return redirect('password_reset_done')
+        else:
+            messages.error(request, "Merci de saisir une adresse mail valide")
+    form = PasswordResetForm()
+
+    return render(request, 'registration/templates/password_reset.html', {"form": form})
+

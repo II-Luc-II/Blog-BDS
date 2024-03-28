@@ -11,7 +11,7 @@
 
     {% endif %}
         <div class="form-group">
-            <label for="title">Title : </label>
+            <label for="title">Titre : </label>
             {{ form.title }}
             {% if form.title.errors %}
             {% for error in form.title.errors %}
@@ -22,7 +22,7 @@
         {% endif %}
         </div>
         <div class="form-group">
-            <label for="content">Content : </label>
+            <label for="content">Article : </label>
             {{ form.content }}
             {% if form.content.errors %}
             {% for error in form.content.errors %}
@@ -44,7 +44,7 @@
         {% endif %}
         </div>
         <div class="form-group">
-            <label for="category">Category : </label>
+            <label for="category">Categorie : </label>
             {{ form.category }}
             {% if form.category.errors %}
             {% for error in form.category.errors %}
@@ -55,7 +55,7 @@
         {% endif %}
         </div>
         <div class="form-group">
-            <label for="is_published">Is published : </label>
+            <label for="is_published">Publié : </label>
             <div class="form-check form-switch">
                 {{ form.is_published }}
             </div>
@@ -80,11 +80,11 @@
         </div>
     <div>
         {% if post %}
-            <button class="btn btn-success my-2">Update</button>
+            <button class="btn btn-success my-2">Sauvegarder</button>
         {% else %}
-            <button class="btn btn-success my-2">Create</button>
+            <button class="btn btn-success my-2">Créer</button>
         {% endif %}
-            <a href="{% url 'dashboard_post' %}" class="btn btn-danger my-2">Cancel</a>
+            <a href="{% url 'dashboard_post' %}" class="btn btn-danger my-2">Supprimer</a>
     </div>
 
     </form>

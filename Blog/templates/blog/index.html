@@ -2,13 +2,13 @@
 {%  load static %}
 
 {% block content %}
-    <h1>{{ title }}</h1>
-    <h2>Liste des articles</h2>
+<div class="justify-content-center align-items-center">
+
 
     {% include "blog/components/messages.html" with messages=messages %}
-
+	<div class="row py-3" ></div>
+		<h1 class="py-5" >Liste des articles</h1>
     <div class="row mb-3">
-
         {% include "blog/components/paginator.html" with data=posts %}
 
         {% for post in posts %}
@@ -31,6 +31,7 @@
         {% endfor %}
     {% include "blog/components/paginator.html" with data=posts %}
     </div>
+</div>
 
 
 

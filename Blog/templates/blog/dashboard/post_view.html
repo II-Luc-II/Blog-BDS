@@ -12,21 +12,21 @@
       </div>
       <div class="post-created-at">
           <span>
-              Published :
+              Publié :
           </span>
           <strong>
               {{ post.created_at|date:"D d M Y" }} {{ post.created_at|time:"H:i" }}
           </strong>
           |
           <span>
-              Author :
+              Auteur :
           </span>
           <strong>
               {{ post.author }}
           </strong>
       </div>
       <div class="post-category">
-          Catégory : <strong> {{ post.category }}</strong>
+          Catégorie : <strong> {{ post.category }}</strong>
       </div>
       {% if post.tags.all %}
           <div class="post-tags">

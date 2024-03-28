@@ -3,4 +3,10 @@
 }
 h1 {
     color: red;
+
 }
+
+.nav-link, h1, label {
+    font-family: "Kaushan Script", serif;
+}
+
